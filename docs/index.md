@@ -3,28 +3,28 @@
 layout: home
 
 hero:
-  name: "AWMC TEAM  & Services"
-  text: "打造全能的舞萌平台"
-  tagline: "官方文档、功能介绍及使用指南"
+  name: "Project Araso"
+  text: "maimaiDX 简明指南"
+  tagline: "简洁明了的maimaiDX全方面指南"
   image:
     src: "/images/dlx_normal.png"    
-    alt: AWMC Bot Logo
+    alt: PARS Logo
   actions:
     - theme: brand
-      text: 快速开始
-      link: /guide/getting-started
+      text: 开始阅读
+      link: /prologue
     - theme: alt
-      text: 使用API
-      link: /dev/index
+      text: 关于我们
+      link: /about
 features:
   - icon: 🛠️
-    title: 功能强大
-    details: 集成多种实用工具，助力您的游戏。
+    title: 简洁明了
+    details: 语言简洁明了，注释到位，可读性佳。
   - icon: ⚙️
-    title: 易于使用
-    details: 简单的命令，直观的交互，快速上手。
+    title: 介绍详细
+    details: 术语解释完备，新老wmc均可快速上手。
   - icon: 👥
-    title: 社区支持
-    details: 活跃的社区和天天送福利的群主。
+    title: 社区共建
+    details: 时刻保证信息时效性。
 
 ---
