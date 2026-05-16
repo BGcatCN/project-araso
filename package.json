@@ -1,5 +1,5 @@
 {
-  "name": "awmc-wiki",
+  "name": "project-araso",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Project Araso docs powered by VitePress",
   "devDependencies": {
     "@types/node": "^25.5.0",
     "vitepress": "^1.6.4"

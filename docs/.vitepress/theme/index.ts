@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import StatChart from './components/StatChart.vue'
 import ReadingTime from './components/ReadingTime.vue'
 import ApiDemo from './components/ApiDemo.vue'
+import ReadingBranch from './components/ReadingBranch.vue'
 
 export default {
   extends: DefaultTheme,
@@ -10,6 +11,7 @@ export default {
     app.component('StatChart', StatChart)
     app.component('ReadingTime', ReadingTime)
     app.component('ApiDemo', ApiDemo)
+    app.component('ReadingBranch', ReadingBranch)
   },
   Layout() {
     return h(DefaultTheme.Layout, null, {

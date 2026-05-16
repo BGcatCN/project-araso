@@ -14,15 +14,15 @@ hero:
       text: 开始阅读
       link: /prologue
     - theme: alt
-      text: 关于我们
-      link: /about
+      text: 直接进入正文
+      link: /guide/newcomer
 features:
   - icon: 🛠️
     title: 简洁明了
     details: 语言简洁明了，注释到位，可读性佳。
   - icon: ⚙️
     title: 介绍详细
-    details: 术语解释完备，新老wmc均可快速上手。
+    details: 术语解释完备，初学者也能快速进入状态。
   - icon: 👥
     title: 社区共建
     details: 时刻保证信息时效性。

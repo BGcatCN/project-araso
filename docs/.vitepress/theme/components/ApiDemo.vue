@@ -46,7 +46,7 @@ const currentApi = computed(() => {
     base = props.options[activeOptionIndex.value]
   }
 
-  const finalBaseUrl = props.baseUrl || base.baseUrl || frontmatter.value.apiBaseUrl || 'https://status.awmc.cc'
+  const finalBaseUrl = props.baseUrl || base.baseUrl || frontmatter.value.apiBaseUrl || 'https://example.com'
 
   return {
     title: props.title || base.title || '未命名接口',
@@ -75,7 +75,7 @@ const authToken = ref('')
 // 从 localStorage 加载令牌 (可选，提升用户体验)
 import { onMounted } from 'vue'
 onMounted(() => {
-  const savedToken = localStorage.getItem('awmc_auth_token')
+  const savedToken = localStorage.getItem('project_araso_auth_token')
   if (savedToken) authToken.value = savedToken
 })
 
@@ -148,7 +148,7 @@ const runRequest = async () => {
     // 如果填了 Auth Token，则携带 Bearer 头
     if (authToken.value) {
       options.headers['Authorization'] = `Bearer ${authToken.value}`
-      localStorage.setItem('awmc_auth_token', authToken.value)
+      localStorage.setItem('project_araso_auth_token', authToken.value)
     }
     
     const response = await fetch(url, options)
@@ -203,15 +203,15 @@ const formatMethod = (method) => {
           {{ currentApi.description }}
         </div>
 
-        <!-- 鉴权部分 (仅针对 awmc-api 场景) -->
-        <div v-if="currentApi.baseUrl.includes('api.awmc.cc')" class="auth-section">
+        <!-- 鉴权部分 (仅针对需要令牌的 API 场景) -->
+        <div v-if="currentApi.baseUrl.includes('/api')" class="auth-section">
           <div class="section-title">鉴权设置 (Authorization)</div>
           <div class="auth-box">
             <span class="auth-prefix">Bearer</span>
             <input 
               v-model="authToken" 
               class="auth-input"
-              placeholder="请输入您的 gw_ 令牌或 JWT"
+              placeholder="请输入访问令牌或 JWT"
             />
           </div>
           <div class="auth-tips">填写的令牌将用于此后的所有请求。</div>
