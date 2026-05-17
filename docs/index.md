@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /prologue
+      link: /guide/prologue
     - theme: alt
       text: 直接进入正文
-      link: /guide/newcomer
+      link: /guide/1-newcomer
 features:
   - icon: 🛠️
     title: 简洁明了

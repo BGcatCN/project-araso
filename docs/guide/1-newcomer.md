@@ -3,6 +3,7 @@ prev:
   text: 回到序章
   link: /prologue
 next: false
+sidebarOrder: 10
 ---
 
 # 初来乍到
@@ -32,7 +33,7 @@ Hello!!!
 当然，你也可以选择跳过附章，继续沿主线章节阅读，这并不会影响你对后续内容的理解。
 
 <ReadingBranch
-  title="分叉点：是否阅读附章？"
+  title="是否阅读附章？"
   description="这一段有一篇可选附章。"
   :appendix="{
     title: '附章：音游窝是什么？',
@@ -42,8 +43,8 @@ Hello!!!
   }"
   :mainline="{
     title: '主线：第一次进店前要知道什么',
-    link: '/guide/first-visit',
-    description: '直接沿主线进入下一章。',
+    link: '/guide/2-first-visit',
+    description: '继续沿主线进入下一章。',
     badge: '主线'
   }"
 />

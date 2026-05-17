@@ -1,12 +1,13 @@
 ---
 title: 附章：音游窝是什么？
-appendixOf: /guide/newcomer
+appendixOf: /guide/1-newcomer
+sidebarOrder: 20
 next:
   text: 第一次进店前要知道什么
-  link: /guide/first-visit
+  link: /guide/2-first-visit
 prev:
   text: 初来乍到
-  link: /guide/newcomer
+  link: /guide/1-newcomer
 ---
 
 # 附章：音游窝是什么？
@@ -19,4 +20,4 @@ prev:
 
 音游窝大多使用按小时或包天、包场的计费方式，此外其中大多数的机台都只是**手台**，并不是真正的街机机台，它们大多连接的是玩家搭建的**私服**，不能使用舞萌|中二微信公众号中的账号登录以及其提供的各项服务。
 
-当然，私服也并非一无是处，由于国服更新的滞后性，私服凭借着其与日服更新同步的优势，能够更快地体验到新内容。
+当然，私服也并非一无是处，由于国服更新的滞后性，私服凭借着其与日服更新同步的优势，可以使玩家能够更快地体验到新内容，俗称“最新最热“。

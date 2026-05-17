@@ -6,6 +6,7 @@ type GuidePage = {
   text: string
   link: string
   appendixOf?: string
+  sidebarOrder: number
 }
 
 type SidebarItem = {
@@ -62,14 +63,17 @@ function getGuidePages(): GuidePage[] {
       const heading = getFirstHeading(source)
       const appendixOf = getFrontmatterValue(frontmatter, 'appendixOf')
       const text = heading ?? getFrontmatterValue(frontmatter, 'title') ?? path.basename(filePath, '.md')
+      const orderStr = getFrontmatterValue(frontmatter, 'sidebarOrder')
+      const sidebarOrder = orderStr ? Number(orderStr) : 999
 
       return {
         text,
         link: toGuideLink(filePath),
-        appendixOf
+        appendixOf,
+        sidebarOrder: isNaN(sidebarOrder) ? 999 : sidebarOrder
       }
     })
-    .sort((left, right) => left.link.localeCompare(right.link, 'zh-CN'))
+    .sort((left, right) => left.sidebarOrder - right.sidebarOrder || left.link.localeCompare(right.link, 'zh-CN'))
 }
 
 function buildGuideSidebar(): SidebarItem[] {
@@ -84,6 +88,15 @@ function buildGuideSidebar(): SidebarItem[] {
     const appendixItems = appendixMap.get(page.appendixOf) ?? []
     appendixItems.push({ text: page.text, link: page.link })
     appendixMap.set(page.appendixOf, appendixItems)
+  }
+
+  // 按 sidebarOrder 给每个附章组排序
+  for (const [, items] of appendixMap) {
+    items.sort((a, b) => {
+      const pageA = pages.find((p) => p.link === a.link)
+      const pageB = pages.find((p) => p.link === b.link)
+      return (pageA?.sidebarOrder ?? 999) - (pageB?.sidebarOrder ?? 999)
+    })
   }
 
   const mainlineItems = pages

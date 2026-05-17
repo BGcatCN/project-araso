@@ -1,4 +1,5 @@
 ---
+sidebarOrder: 0
 next:
   text: 下一章：初来乍到
   link: /guide/newcomer
