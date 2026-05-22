@@ -1,12 +1,5 @@
 ---
-title: 初次见面
 sidebarOrder: 30
-next:
-  text: 要开始了呦
-  link: /guide/3-first-play
-prev:
-  text: 初来乍到
-  link: /guide/1-newcomer
 ---
 
 # 初次见面

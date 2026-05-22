@@ -18,7 +18,7 @@ defineProps<{
   <section class="reading-branch">
     <div class="reading-branch__header">
       <p class="reading-branch__eyebrow">阅读分流</p>
-      <h2 class="reading-branch__title">{{ title || '你想怎么继续？' }}</h2>
+      <h2 class="reading-branch__title">{{ title || '接下来，你想怎么继续？' }}</h2>
       <p v-if="description" class="reading-branch__description">{{ description }}</p>
     </div>
 

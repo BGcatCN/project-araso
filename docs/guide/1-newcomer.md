@@ -1,8 +1,7 @@
 ---
 prev:
-  text: 回到序章
+  text: 序章
   link: /prologue
-next: false
 sidebarOrder: 10
 ---
 
