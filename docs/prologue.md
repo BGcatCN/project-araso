@@ -2,7 +2,7 @@
 sidebarOrder: 0
 next:
   text: 下一章：初来乍到
-  link: /guide/newcomer
+  link: /guide/1-newcomer
 ---
 
 # 写在指南之前

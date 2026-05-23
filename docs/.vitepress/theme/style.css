@@ -1,0 +1,94 @@
+/*
+ * VitePress 内置 tip / warning / danger 容器的标题是硬编码在默认主题里的，
+ * 无法通过 config 配置修改，因此用 CSS 覆盖：
+ *   1. color: transparent 隐藏原标题文字（保留占位空间）
+ *   2. ::before 伪元素显示中文标题
+ *   3. 配色使用 !important 确保覆盖默认主题
+ */
+
+/* ========== 通用 ========== */
+
+/* 隐藏容器默认的英文标题，腾出空间给 ::before */
+.custom-block.tip .custom-block-title,
+.custom-block.warning .custom-block-title,
+.custom-block.danger .custom-block-title {
+  color: transparent !important;
+  position: relative !important;
+}
+
+/* 所有容器共用的伪元素基础样式 */
+.custom-block.tip .custom-block-title::before,
+.custom-block.warning .custom-block-title::before,
+.custom-block.danger .custom-block-title::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* ========== Tip — 青绿 ========== */
+.custom-block.tip {
+  border-color: #2c7a7b !important;
+}
+.custom-block.tip .custom-block-title::before {
+  content: '💡 提示';
+  color: #2c7a7b;
+}
+.custom-block.tip a {
+  color: #2c7a7b !important;
+  font-weight: 500;
+}
+
+/* ========== Warning — 琥珀 ========== */
+.custom-block.warning {
+  border-color: #e6a23c !important;
+}
+.custom-block.warning .custom-block-title::before {
+  content: '⚠️ 注意';
+  color: #d4870d;
+}
+.custom-block.warning a {
+  color: #d4870d !important;
+  font-weight: 500;
+}
+
+/* ========== Danger — 玫瑰红 ========== */
+.custom-block.danger {
+  border-color: #f56c6c !important;
+}
+.custom-block.danger .custom-block-title::before {
+  content: '🚫 警告';
+  color: #c0392b;
+}
+.custom-block.danger a {
+  color: #c0392b !important;
+  font-weight: 500;
+}
+
+/* ========== 深色模式适配 ========== */
+.dark .custom-block.tip {
+  border-color: #3fa8a9 !important;
+  background-color: rgba(44, 122, 123, 0.1);
+}
+.dark .custom-block.tip .custom-block-title::before {
+  color: #5fc1c2;
+}
+
+.dark .custom-block.warning {
+  border-color: #e6a23c !important;
+  background-color: rgba(230, 162, 60, 0.1);
+}
+.dark .custom-block.warning .custom-block-title::before {
+  color: #e6a23c;
+}
+
+.dark .custom-block.danger {
+  border-color: #f56c6c !important;
+  background-color: rgba(245, 108, 108, 0.1);
+}
+.dark .custom-block.danger .custom-block-title::before {
+  color: #f56c6c;
+}

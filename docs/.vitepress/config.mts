@@ -116,16 +116,49 @@ function buildSectionBlock(pages: PageMeta[], groupLabel: string): SidebarItem {
   return { text: groupLabel, items: mainlineItems }
 }
 
+/* ===== 扫描 docs 根目录下的独立页面（如 prologue.md） ===== */
+
+function scanRootPages(): PageMeta[] {
+  const files = fs.readdirSync(docsRoot)
+    .filter((f) => f.endsWith('.md') && f !== 'index.md')
+
+  return files.map((f) => {
+    const filePath = path.join(docsRoot, f)
+    const source = fs.readFileSync(filePath, 'utf8')
+    const frontmatter = getFrontmatterBlock(source)
+    const heading = getFirstHeading(source)
+    const orderStr = getFrontmatterValue(frontmatter, 'sidebarOrder')
+    const sidebarOrder = isNaN(Number(orderStr)) ? 999 : Number(orderStr)
+
+    return {
+      text: heading ?? getFrontmatterValue(frontmatter, 'title') ?? f.replace(/\.md$/, ''),
+      link: toSiteLink(filePath),
+      sidebarOrder
+    }
+  }).sort((a, b) => a.sidebarOrder - b.sidebarOrder)
+}
+
 /* ===== 构建侧边栏 ===== */
 
+const rootPages = scanRootPages()
 const guidePages = scanSection({ dir: 'guide', groupLabel: '📖 主线章节' })
 const advancedPages = scanSection({ dir: 'advanced', groupLabel: '🚀 进阶内容' })
 
-const guideSidebar = [buildSectionBlock(guidePages, '📖 主线章节')]
-const advancedSidebar = [
-  buildSectionBlock(guidePages, '📖 主线章节'),
-  buildSectionBlock(advancedPages, '🚀 进阶内容')
-]
+/* 统一的侧边栏：序章 → 主线 → 进阶，挂载到 / 下对所有页面生效 */
+const combinedSidebar: SidebarItem[] = []
+
+if (rootPages.length) {
+  combinedSidebar.push({
+    text: '📜 序章',
+    items: rootPages.map((p) => ({ text: p.text, link: p.link }))
+  })
+}
+
+combinedSidebar.push(buildSectionBlock(guidePages, '📖 主线章节'))
+
+if (advancedPages.length) {
+  combinedSidebar.push(buildSectionBlock(advancedPages, '🚀 进阶内容'))
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -158,8 +191,7 @@ export default defineConfig({
           { text: '开始阅读', link: '/guide/1-newcomer' }
         ],
         sidebar: {
-          '/guide/': guideSidebar,
-          '/advanced/': advancedSidebar
+          '/': combinedSidebar
         }
       }
     },

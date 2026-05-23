@@ -17,7 +17,7 @@ Hello!!!
 
 ## Where is my mai?
 
-:::TIP
+::: tip
 也可以使用街机地图微信小程序。
 :::
 

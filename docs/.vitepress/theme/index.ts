@@ -1,5 +1,6 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
+import './style.css'
 import StatChart from './components/StatChart.vue'
 import ReadingTime from './components/ReadingTime.vue'
 import ApiDemo from './components/ApiDemo.vue'
