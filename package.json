@@ -5,7 +5,9 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "deploy": "npm run docs:build && wrangler deploy",
+    "preview": "npm run docs:build && wrangler dev"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,7 @@
   "description": "Project Araso docs powered by VitePress",
   "devDependencies": {
     "@types/node": "^25.5.0",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "wrangler": "^4.94.0"
   }
 }
