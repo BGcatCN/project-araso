@@ -24,3 +24,5 @@ Project Araso基于[@Michaelwucoc](https://github.com/Michaelwucoc)的[awmc-wiki
 Project Araso 的诞生离不开社区的支持和贡献。
 
 感谢所有为内容校对、结构设计和信息补充做出贡献的人， ❤ u!
+
+指南修缮工作不易，其中疏漏在所难免，还请广大读者不吝指正。
